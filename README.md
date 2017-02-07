@@ -1,4 +1,4 @@
-# Juego demostracion de las capacidades del acelerometro. Se trata de poner el tap¢n a las botellas.
+# Juego demostracion de las capacidades del acelerometro. Se trata de poner el tap√≥n a las botellas.
 
 ## Usage
 
