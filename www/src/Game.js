@@ -3,7 +3,13 @@ Ball.Game.prototype = {
 	create: function() {
 		this.add.sprite(0, 0, 'screen-bg');
 		this.add.sprite(0, 0, 'panel');
+
+		
+
+
 		this.physics.startSystem(Phaser.Physics.ARCADE);
+
+
 		this.fontSmall = { font: "16px Arial", fill: "#e4beef" };
 		this.fontBig = { font: "24px Arial", fill: "#e4beef" };
 		this.fontMessage = { font: "24px Arial", fill: "#e4beef",  align: "center", stroke: "#320C3E", strokeThickness: 4 };
@@ -12,8 +18,20 @@ Ball.Game.prototype = {
 		this.totalTimer = 0;
 		this.level = 1;
 		this.maxLevels = 5;
-		this.movementForce = 10;
-		this.ballStartPos = { x: Ball._WIDTH*0.5, y: 450 };
+		this.movementForce = 300;
+		//this.ballStartPos = { x: Ball._WIDTH*0.5, y: 450 };
+		this.ballStartPos = { x: 10, y: 60};
+
+		this.add.sprite(0, Ball._HEIGHT-52, 'suelo');
+
+		//this.suelo.enableBody=true;
+		this.suelo.physicsBodyType = Phaser.Physics.ARCADE;
+		//game.physics.arcade.enable(this.suelo);
+
+		//this.suelo.body.allowGravity = false;
+		//this.suelo.body.immovable = true;
+
+
 
 		this.pauseButton = this.add.button(Ball._WIDTH-8, 8, 'button-pause', this.managePause, this);
 		this.pauseButton.anchor.set(1,0);
@@ -36,8 +54,12 @@ Ball.Game.prototype = {
 		this.ball = this.add.sprite(this.ballStartPos.x, this.ballStartPos.y, 'ball');
 		this.ball.anchor.set(0.5);
 		this.physics.enable(this.ball, Phaser.Physics.ARCADE);
+
+		this.ball.body.gravity.y = 100 + Math.random() * 100;
 		this.ball.body.setSize(18, 18);
 		this.ball.body.bounce.set(0.3, 0.3);
+
+
 
 		this.initLevels();
 		this.showLevel(1);
@@ -145,6 +167,10 @@ Ball.Game.prototype = {
 		else if(this.keys.down.isDown) {
 			this.ball.body.velocity.y += this.movementForce;
 		}
+
+		
+		this.physics.arcade.collide(this.ball, this.suelo, this.wallCollision, null, this);
+
 		this.physics.arcade.collide(this.ball, this.borderGroup, this.wallCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.levels[this.level-1], this.wallCollision, null, this);
 		this.physics.arcade.overlap(this.ball, this.hole, this.finishLevel, null, this);
@@ -155,7 +181,7 @@ Ball.Game.prototype = {
 		}
 		// Vibration API
 		if("vibrate" in window.navigator) {
-			window.navigator.vibrate(100);
+			//window.navigator.vibrate(100);
 		}
 	},
 	handleOrientation: function(e) {

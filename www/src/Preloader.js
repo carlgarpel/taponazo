@@ -6,11 +6,18 @@ Ball.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('ball', 'img/tapon.png');
+
+		
+
 		this.load.image('hole', 'img/hole.png');
 		this.load.image('element-w', 'img/botella1.png');
 		this.load.image('element-h', 'img/botella2.png');
 		this.load.image('botella3', 'img/botella3.png');
 		this.load.image('panel', 'img/panel.png');
+
+		this.load.image('suelo', 'img/suelo.png');
+
+
 		this.load.image('title', 'img/title.png');
 		this.load.image('button-pause', 'img/button-pause.png');
 		this.load.image('screen-bg', 'img/fondo.png');
