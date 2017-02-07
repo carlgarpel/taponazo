@@ -1,6 +1,6 @@
 var Ball = {
-	_WIDTH: 320,
-	_HEIGHT: 480
+	_WIDTH: 360,
+	_HEIGHT: 640
 };
 Ball.Boot = function(game) {};
 Ball.Boot.prototype = {
@@ -12,6 +12,7 @@ Ball.Boot.prototype = {
 		this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		this.game.scale.pageAlignHorizontally = true;
 		this.game.scale.pageAlignVertically = true;
-		this.game.state.start('Preloader');
+		alert('Hasta aquí');
+		//this.game.state.start('Preloader');
 	}
 };
