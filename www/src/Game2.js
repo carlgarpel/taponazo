@@ -18,7 +18,7 @@ Ball.Game.prototype = {
 		this.ball.anchor.set(0.5);
 		this.physics.enable(this.ball, Phaser.Physics.ARCADE);
 
-		this.ball.body.gravity.x = 100 + Math.random() * 100;
+		this.ball.body.gravity.x =  10 //100 + Math.random() * 100;
 
 
 		//Grupo de bordes **********************************************************
@@ -41,7 +41,7 @@ Ball.Game.prototype = {
 
 	},
 	update: function() {
-		this.ball.body.velocity.y += 10 //this.movementForce;
+		this.ball.body.velocity.y += 5 //this.movementForce;
 
 		this.physics.arcade.collide(this.ball, this.borderGroup, this.wallCollision, null, this);
 		
