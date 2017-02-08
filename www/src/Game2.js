@@ -6,7 +6,7 @@ Ball.Game.prototype = {
 
 		//VARIABLES ****************************************************************
 		this.velocidadY=1;
-		this.velocidadY=0;		
+		this.velocidadX=0;		
 		this.acelerometro();
 		//**************************************************************************
 		//FONDO ********************************************************************
@@ -78,7 +78,8 @@ Ball.Game.prototype = {
 	},
 	registraDireccion: function(datosAceleracion){
    		 
-    	 velocidadY = datosAceleracion.y ;
+    	 velocidadY = datosAceleracion.y 
+    	 velocidadX = datosAceleracion.x;
   }
 };
 
