@@ -18,7 +18,7 @@ Ball.Game.prototype = {
 		this.ball.anchor.set(0.5);
 		this.physics.enable(this.ball, Phaser.Physics.ARCADE);
 
-
+		this.ball.body.gravity.y = 100 + Math.random() * 100;
 
 
 		//Grupo de bordes **********************************************************
@@ -47,13 +47,15 @@ Ball.Game.prototype = {
 		
 	},
 	wallCollision: function() {
-		if(this.audioStatus) {
+	/*	if(this.audioStatus) {
 			this.bounceSound.play();
 		}
 		// Vibration API
 		if("vibrate" in window.navigator) {
 			window.navigator.vibrate(100);
-		}
+		}*/
+
+		
 	},
 		
 	render: function() {
