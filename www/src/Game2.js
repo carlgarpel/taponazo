@@ -6,7 +6,7 @@ Ball.Game.prototype = {
 
 		//VARIABLES ****************************************************************
 		this.velocidadY=1;
-		this.velocidadX=0;		
+		this.velocidadX=1;		
 		this.acelerometro();
 		//**************************************************************************
 		//FONDO ********************************************************************
@@ -47,7 +47,7 @@ Ball.Game.prototype = {
 
 	},
 	update: function() {
-		this.ball.body.velocity.y +=this.velocity ; //this.movementForce;
+		this.ball.body.velocity.y =this.velocidadY; //this.movementForce;
 		this.ball.body.velocity.x =(this.velocidadX * (-1)); ; //this.movementForce;
 		
 
