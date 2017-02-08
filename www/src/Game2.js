@@ -14,7 +14,7 @@ Ball.Game.prototype = {
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 
 
-		this.ball = this.add.sprite(80, 80, 'ball');
+		this.ball = this.add.sprite(80, 130, 'ball');
 		this.ball.anchor.set(0.5);
 		this.physics.enable(this.ball, Phaser.Physics.ARCADE);
 
@@ -42,6 +42,18 @@ Ball.Game.prototype = {
 	},
 	update: function() {
 		this.ball.body.velocity.y += 10 //this.movementForce;
+
+		this.physics.arcade.collide(this.ball, this.borderGroup, this.wallCollision, null, this);
+		
+	},
+	wallCollision: function() {
+		if(this.audioStatus) {
+			this.bounceSound.play();
+		}
+		// Vibration API
+		if("vibrate" in window.navigator) {
+			window.navigator.vibrate(100);
+		}
 	},
 		
 	render: function() {

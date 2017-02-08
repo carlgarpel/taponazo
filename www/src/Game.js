@@ -181,7 +181,7 @@ Ball.Game.prototype = {
 		}
 		// Vibration API
 		if("vibrate" in window.navigator) {
-			//window.navigator.vibrate(100);
+			window.navigator.vibrate(100);
 		}
 	},
 	handleOrientation: function(e) {
