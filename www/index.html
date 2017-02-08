@@ -19,7 +19,7 @@
 <body>
 <script>
 (function() {
-	var game = new Phaser.Game(320, 480, Phaser.CANVAS, 'game');
+	var game = new Phaser.Game(360, 640, Phaser.AUTO, 'game');
 	game.state.add('Boot', Ball.Boot);
 	game.state.add('Preloader', Ball.Preloader);
 	game.state.add('MainMenu', Ball.MainMenu);
