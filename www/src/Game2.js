@@ -36,7 +36,7 @@ Ball.Game.prototype = {
 		this.borderGroup.enableBody = true;
 		this.borderGroup.physicsBodyType = Phaser.Physics.ARCADE;
 
-		this.borderGroup.create(0, 150, 'border-horizontal'); //2
+		this.borderGroup.create(0, 50, 'border-horizontal'); //2
 		this.borderGroup.create(0+50, Ball._HEIGHT-100, 'border-horizontal'); //0
 		this.borderGroup.create(0+50, 0, 'border-vertical'); //0
 		this.borderGroup.create(Ball._WIDTH-52, 0, 'border-vertical'); //-2
