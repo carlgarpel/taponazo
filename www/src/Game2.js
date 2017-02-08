@@ -82,8 +82,4 @@ Ball.Game.prototype = {
   }
 };
 
-if ('addEventListener' in document) {
-    document.addEventListener('deviceready', function() {
-        Ball.Game.acelerometro();
-    }, false);
 
