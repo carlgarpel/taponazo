@@ -25,7 +25,7 @@ Ball.Game.prototype = {
 		this.add.sprite(0, Ball._HEIGHT-52, 'suelo');
 
 		//this.suelo.enableBody=true;
-		this.suelo.physicsBodyType = Phaser.Physics.ARCADE;
+		//this.suelo.physicsBodyType = Phaser.Physics.ARCADE;
 		//game.physics.arcade.enable(this.suelo);
 
 		//this.suelo.body.allowGravity = false;
