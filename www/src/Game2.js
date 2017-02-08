@@ -3,6 +3,12 @@ Ball.Game = function(game) {};
 
 Ball.Game.prototype = {
 	create: function() {
+
+		//VARIABLES ****************************************************************
+		this.velocidadY=1;
+		this.velocidadY=0;		
+
+		//**************************************************************************
 		//FONDO ********************************************************************
 		// Fondo fotográfico
 		this.add.sprite(0, 0, 'screen-bg');
@@ -18,7 +24,7 @@ Ball.Game.prototype = {
 		this.ball.anchor.set(0.5);
 		this.physics.enable(this.ball, Phaser.Physics.ARCADE);
 
-		this.ball.body.gravity.x =  10 //100 + Math.random() * 100;
+		this.ball.body.gravity.x =  2 //100 + Math.random() * 100;
 
 
 		//Grupo de bordes **********************************************************
@@ -41,7 +47,10 @@ Ball.Game.prototype = {
 
 	},
 	update: function() {
-		this.ball.body.velocity.y += 5 //this.movementForce;
+		this.ball.body.velocity.y +=this.velocity ; //this.movementForce;
+		this.ball.body.velocity.x =(this.velocidadX * (-1)); ; //this.movementForce;
+		
+
 
 		this.physics.arcade.collide(this.ball, this.borderGroup, this.wallCollision, null, this);
 		
@@ -61,5 +70,20 @@ Ball.Game.prototype = {
 	render: function() {
 		// this.game.debug.body(this.ball);
 		// this.game.debug.body(this.hole);
-	}
+	},
+	acelerometro: function() {
+		function onError() {console.log('onError!');}
+    	function onSuccess(datosAceleracion){this.registraDireccion(datosAceleracion);}
+  		navigator.accelerometer.watchAcceleration(onSuccess, onError,{ frequency: 10 });
+	},
+	registraDireccion: function(datosAceleracion){
+   		 
+    	 velocidadY = datosAceleracion.y ;
+  }
 };
+
+if ('addEventListener' in document) {
+    document.addEventListener('deviceready', function() {
+        Ball.Game.acelerometro();
+    }, false);
+}
